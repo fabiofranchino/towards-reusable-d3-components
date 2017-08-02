@@ -1,0 +1,37 @@
+<html>
+
+    <head>
+        <script src="node_modules/d3/build/d3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css">
+
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="03.js"></script>
+
+    </head>
+
+    <body>
+
+        <svg></svg>
+
+        <script>
+            
+            var vis = myViz()
+                .config({width:1000})
+
+            var svg = d3.select('svg')
+                .datum([0, 0, 0])
+                .call(vis)    
+                
+            svg.select('text')
+                .style('fill', 'red')
+
+            d3.select('body').on('click', function(){
+                svg.datum([0, 0, 0, 0, 0]).call(vis.config({width:500}))
+            })
+
+        </script>
+
+    </body>
+
+</html>
